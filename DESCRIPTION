@@ -3,7 +3,7 @@ Title: Minimal DNA Methylation Signature
 Version: 0.0.0.9000
 Authors@R: 
     person("Dario", "Romagnoli", , email="dario.romagnoli@uslcentro.toscana.it", role = c("aut", "cre"))
-Description: A package to identify type/subtype of tumor samples and estimate tumor content using a minimal DNA-methylation signature
+Description: A package to identify type/subtype of tumor samples and estimate tumor content using minimal DNA-methylation signatures
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
