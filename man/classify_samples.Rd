@@ -6,7 +6,7 @@
 \usage{
 classify_samples(
   x,
-  method = c("glmnet", "rpc"),
+  method = c("glmnet", "rpc", "lasso", "nnls", "ols"),
   sample_type = c("breast", "generic")
 )
 }
@@ -25,5 +25,5 @@ Determine type/subtype of a cancer sample
 }
 \examples{
 classify_samples(bc_data)
-classify_samples(bc_data, sample_type="generic", method="rpc")
+classify_samples(bc_data, method="rpc")
 }
