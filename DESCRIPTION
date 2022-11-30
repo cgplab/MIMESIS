@@ -1,6 +1,6 @@
 Package: MIMESIS
 Title: Minimal DNA Methylation Signature
-Version: 0.0.2.9000
+Version: 0.0.3.9000
 Authors@R: 
     person("Dario", "Romagnoli", , email="dario.romagnoli@uslcentro.toscana.it", role = c("aut", "cre"))
 Description: A package to identify type/subtype of tumor samples and estimate tumor content using minimal DNA-methylation signatures
@@ -17,7 +17,7 @@ Imports:
     glmnet,
     stats
 Remotes:
-    cgplab/PAMES (>=3.0.0)
+    cgplab/PAMES
 Depends: 
     R (>= 4.0)
 LazyData: true
