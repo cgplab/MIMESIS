@@ -21,3 +21,7 @@ make_glmnet_model(x, y, k = 5, cores = 1, seed = NULL)
 \description{
 Make a classification model using GLMNET
 }
+\examples{
+glmnet_model <- make_glmnet_model(bc_data, bc_subtypes, cores=20)
+
+}

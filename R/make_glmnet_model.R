@@ -7,7 +7,7 @@
 #' @param seed A number. Set the seed for the pseudorandom number generator
 #' (default to random) for reproducible analyses.
 #' @examples
-#' glmnet_model <- make_glmnet_model(bc_data, bc_subtypes, cores=20){
+#' glmnet_model <- make_glmnet_model(bc_data, bc_subtypes, cores=20)
 #'
 make_glmnet_model <- function(x, y, k=5, cores=1, seed=NULL){
 
