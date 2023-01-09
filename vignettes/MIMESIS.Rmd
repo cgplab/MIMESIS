@@ -1,0 +1,56 @@
+---
+title: "MIMESIS"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{MIMESIS}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+The MIMESIS (Minimal DNA-Methylation Signatures) pipeline consits of two main modules:
+
+1. classification of tumor types-subtypes;
+2. estimation of tumor content (TC).
+
+# Tutorial
+## Input data
+
+MIMESIS works with matrices reporting beta-values (range 0-1; rows=sites, columns=samples).
+
+In order to use our pre-generated models, input data must have rownames
+reporting Illumina probe names (e.g. "cg04800142") while in case of data from
+BS-Sequencing, rownames must report genomic coordinates in the format
+"Chromosome\_Coordinate": a function is provided to remap to the closer
+"cg-probe".
+
+These limitations don't apply if users create their own models.
+
+## Basic usage
+```{r start}
+if (!require(PAMES, quietly = TRUE)){
+    remotes::install_github("cgplab/PAMES")
+    library(PAMES)
+}
+if (!require(MIMESIS, quietly = TRUE)){
+    load_all()
+    # remotes::install_github("cgplab/MIMESIS")
+    # library(MIMESIS)
+}
+
+# preview data
+bc_data[1:3, 1:3]
+
+# use default model
+samples_subtype <- classify_samples(bc_data)
+samples_purity <- get_purity(bc_data, bc_sites)
+
+# use custom model
+custom_glmnet_model <- suppressWarnings(make_glmnet_model(bc_data, bc_subtypes))
+samples_subtype <- classify_samples(bc_data, custom_glmnet_model)
+```

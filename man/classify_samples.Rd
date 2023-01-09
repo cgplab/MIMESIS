@@ -6,6 +6,7 @@
 \usage{
 classify_samples(
   x,
+  model = NULL,
   method = c("glmnet", "rpc", "lasso", "nnls", "ols"),
   sample_type = c("breast", "generic")
 )

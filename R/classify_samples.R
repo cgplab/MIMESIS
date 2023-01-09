@@ -8,13 +8,18 @@
 #' @examples
 #' classify_samples(bc_data)
 #' classify_samples(bc_data, method="rpc")
-classify_samples <- function(x, method=c("glmnet", "rpc", "lasso", "nnls", "ols"), sample_type=c("breast", "generic")){
+classify_samples <- function(x, model=NULL, method=c("glmnet", "rpc", "lasso", "nnls", "ols"), sample_type=c("breast", "generic")){
     method <- match.arg(method)
     sample_type <- match.arg(sample_type)
 
+    if (!is.null(model)){
+        prediction <- stats::predict(model, newx=t(x), s="lambda.min", type = "class")[,1]
+        return(prediction)
+    }
+
     if (method=="glmnet"){
         cpg_probes <- sort(rownames(x))
-        model_features <- rownames(stats::coef(glmnet_bc_model)[[1]])[-1]
+        model_features <- sort(rownames(rpc_bc_model))
         assertthat::assert_that(all(cpg_probes %in% model_features))
 
         if (sample_type=="breast"){

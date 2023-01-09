@@ -7,7 +7,7 @@ Description: A package to identify type/subtype of tumor samples and estimate tu
 License: MIT
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.3
 biocViews:
 Imports: 
     assertthat,
@@ -15,7 +15,8 @@ Imports:
     doParallel,
     EpiDISH,
     glmnet,
-    stats
+    stats,
+    tsutils
 Remotes:
     cgplab/PAMES
 Depends: 
